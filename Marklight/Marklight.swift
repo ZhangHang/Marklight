@@ -142,6 +142,11 @@ import UIKit
  - see: `MarklightTextStorage`
 */
 public struct Marklight {
+	/**
+	`UIColor` used to default text. Default value is black.
+	*/
+	public static var textColor = UIColor.blackColor()
+
     /**
     `UIColor` used to highlight markdown syntax. Default value is light grey.
      */
@@ -257,7 +262,10 @@ public struct Marklight {
         let quoteFont = Marklight.quoteFont(textSize)
         let boldFont = UIFont.boldSystemFontOfSize(textSize)
         let italicFont = UIFont.italicSystemFontOfSize(textSize)
-        
+
+		// We assign default text color
+		textStorage.addAttribute(NSForegroundColorAttributeName, value: textColor, range: wholeRange)
+
         // We detect and process underlined headers
         Marklight.headersSetexRegex.matches(textStorage.string, range: wholeRange) { (result) -> Void in
             textStorage.addAttribute(NSFontAttributeName, value: boldFont, range: result!.range)

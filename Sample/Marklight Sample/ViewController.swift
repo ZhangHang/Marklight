@@ -27,7 +27,8 @@ class ViewController: UIViewController {
 
         // Add a beautiful padding to the `UITextView` content
         textView.textContainerInset = UIEdgeInsetsMake(4, 4, 4, 4)
-        
+
+		textStorage.textColor = UIColor.brownColor()
         textStorage.codeColor = UIColor.orangeColor()
         textStorage.quoteColor = UIColor.darkGrayColor()
         textStorage.syntaxColor = UIColor.blueColor()

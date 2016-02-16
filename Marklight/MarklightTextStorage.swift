@@ -72,7 +72,12 @@ public class MarklightTextStorage: NSTextStorage {
     private var imp = NSMutableAttributedString()
     
     // MARK: Syntax highlight customisation
-    
+
+	/**
+	`UIColor` used to default text. Default value is black.
+	*/
+	public var textColor = UIColor.blackColor()
+
     /**
     `UIColor` used to highlight markdown syntax. Default value is light grey.
     */
@@ -130,7 +135,8 @@ public class MarklightTextStorage: NSTextStorage {
     override public func processEditing() {
         // removeParagraphAttributes()
         removeWholeAttributes()
-        
+
+		Marklight.textColor = textColor
         Marklight.syntaxColor = syntaxColor
         Marklight.codeFontName = codeFontName
         Marklight.codeColor = codeColor
